@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tomas\Documents\Visual Studio 2013\Projects\GraphicsPractical12\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\heightmap.xnb</Output>
+      <Output>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\heightmap.xnb</Output>
       <Time>2015-04-21T17:45:18.8758604+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -17,10 +17,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Tomas\Documents\Visual Studio 2013\Projects\GraphicsPractical12\GraphicsPractical1\GraphicsPractical1Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Tomas\Documents\Visual Studio 2013\Projects\GraphicsPractical12\GraphicsPractical1\GraphicsPractical1\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Tomas\Documents\Visual Studio 2013\Projects\GraphicsPractical12\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Tomas\Documents\Visual Studio 2013\Projects\GraphicsPractical12\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
