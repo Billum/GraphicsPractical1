@@ -9,6 +9,8 @@ namespace GraphicsPractical1
 {
     class Terrain
     {
+        private const int tresholdSnow = 23; 
+
         private int width;
         private int height;
         private short[] indices;
@@ -27,19 +29,32 @@ namespace GraphicsPractical1
             this.calculateNormals();
             this.copyToBuffers(device);
         }
+
         private VertexPositionColorNormal[] loadVertices(HeightMap heightMap, float heightScale)
         {
             VertexPositionColorNormal[] vertices = new VertexPositionColorNormal[this.width * this.height];
+
             for (int x = 0; x < this.width; ++x)
                 for (int y = 0; y < this.height; ++y)
                 {
                     int v = x + y * this.width;
                     float h = heightMap[x, y] * heightScale;
                     vertices[v].Position = new Vector3(x, h, -y);
-                    vertices[v].Color = Color.Green;
-                }
+
+                    if (heightMap[x, y] > (WaterTreshold + 1))
+                        // Color everything above the snow treshold white, now the
+                        // mountain tops have snow on them
+                        vertices[v].Color = (h > tresholdSnow)
+                                                ? Color.White
+                                                : Color.Green;
+                    else
+                        // Everything below the water treshold is colored blue
+                        vertices[v].Color = Color.Blue;
+                }
+
             return vertices;
         }
+
         private void setupIndices()
         {
             this.indices = new short[(this.width - 1) * (this.height - 1) * 6];
@@ -64,6 +79,7 @@ namespace GraphicsPractical1
         {
             device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, this.vertices.Length, 0, this.indices.Length / 3);
         }
+
         private void calculateNormals()
         {
              for (int i = 0; i < this.indices.Length / 3; i++)
@@ -84,6 +100,7 @@ namespace GraphicsPractical1
              for (int i = 0; i < this.vertices.Length; i++)
                  this.vertices[i].Normal.Normalize();
         }
+
         private void copyToBuffers(GraphicsDevice device)
         {
             this.vertexBuffer = new VertexBuffer(device, VertexPositionColorNormal.VertexDeclaration, this.vertices.Length, BufferUsage.WriteOnly);
@@ -95,13 +112,17 @@ namespace GraphicsPractical1
             device.Indices = this.indexBuffer;
             device.SetVertexBuffer(this.vertexBuffer);
         }
+
         public int Width
         {
             get { return this.width; }
         }
+
         public int Height
         {
             get { return this.height; }
         }
+
+        public const int WaterTreshold = 50;
     }
 }

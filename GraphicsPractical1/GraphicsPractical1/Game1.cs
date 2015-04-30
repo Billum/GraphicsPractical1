@@ -95,13 +95,29 @@ namespace GraphicsPractical1
 
             this.Window.Title = "Graphics Tutorial | FPS: " + this.frameRateCounter.FrameRate;
             float deltaAngle = 0;
+
             KeyboardState kbState = Keyboard.GetState();
             if (kbState.IsKeyDown(Keys.Left))
                 deltaAngle += -3 * timeStep;
             if (kbState.IsKeyDown(Keys.Right))
                 deltaAngle += 3 * timeStep;
             if (deltaAngle != 0)
-                this.camera.Eye = Vector3.Transform(this.camera.Eye, Matrix.CreateRotationY(deltaAngle));
+                this.camera.Eye = Vector3.Transform(this.camera.Eye, Matrix.CreateRotationY(deltaAngle));
+
+            if (kbState.IsKeyDown(Keys.Down))
+                this.camera.Eye = Vector3.Transform(this.camera.Eye, Matrix.CreateScale(1.001f));
+            if (kbState.IsKeyDown(Keys.Up))
+                this.camera.Eye = Vector3.Transform(this.camera.Eye, Matrix.CreateScale(0.999f));
+
+
+            if (kbState.IsKeyDown(Keys.A))
+                this.camera.Eye = Vector3.Add(this.camera.Eye, new Vector3(-0.1f, 0.0f, 0.0f));
+            if (kbState.IsKeyDown(Keys.D))
+                this.camera.Eye = Vector3.Add(this.camera.Eye, new Vector3(0.1f, 0.0f, 0.0f));
+            if (kbState.IsKeyDown(Keys.W))
+                this.camera.Eye = Vector3.Add(this.camera.Eye, new Vector3(0.0f, 0.1f, 0.0f));
+            if (kbState.IsKeyDown(Keys.S))
+                this.camera.Eye = Vector3.Add(this.camera.Eye, new Vector3(0.0f, -0.1f, 0.0f));
             base.Update(gameTime);
         }
 
