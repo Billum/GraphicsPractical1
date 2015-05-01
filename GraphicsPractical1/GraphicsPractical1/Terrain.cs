@@ -9,7 +9,12 @@ namespace GraphicsPractical1
 {
     class Terrain
     {
-        private const int tresholdSnow = 23; 
+        private const int tresholdSnow = 23;
+        public const int WaterTreshold = 50;
+        public const int Vulcano = 15;
+        public const int Lava = 7;
+        public const int VulcanoTreshold = 18;
+        public const int LavaTreshold = 18;
 
         private int width;
         private int height;
@@ -36,11 +41,11 @@ namespace GraphicsPractical1
 
             for (int x = 0; x < this.width; ++x)
                 for (int y = 0; y < this.height; ++y)
-                {
+                {     
                     int v = x + y * this.width;
                     float h = heightMap[x, y] * heightScale;
                     vertices[v].Position = new Vector3(x, h, -y);
-
+                    
                     if (heightMap[x, y] > (WaterTreshold + 1))
                         // Color everything above the snow treshold white, now the
                         // mountain tops have snow on them
@@ -50,6 +55,24 @@ namespace GraphicsPractical1
                     else
                         // Everything below the water treshold is colored blue
                         vertices[v].Color = Color.Blue;
+                }
+            for (int x = this.width/2 - Vulcano; x < this.width/ 2 + Vulcano; ++x)
+                for (int y = this.height/ 2 - Vulcano; y < this.height/ 2 + Vulcano; ++y)
+                {
+                    int v = x + y * this.width;
+                    float h = heightMap[x, y] * heightScale;
+                    vertices[v].Position = new Vector3(x, h, -y);
+
+                    vertices[v].Color = (h > VulcanoTreshold) ? Color.Brown : Color.Green;
+                }
+            for (int x = this.width / 2 - Lava; x < this.width / 2 + Lava; ++x)
+                for (int y = this.height / 2 - Lava; y < this.height / 2 + Lava; ++y)
+                {
+                    int v = x + y * this.width;
+                    float h = heightMap[x, y] * heightScale;
+                    vertices[v].Position = new Vector3(x, h, -y);
+
+                    vertices[v].Color = (h < LavaTreshold) ? Color.Red : Color.Brown;
                 }
 
             return vertices;
@@ -122,7 +145,5 @@ namespace GraphicsPractical1
         {
             get { return this.height; }
         }
-
-        public const int WaterTreshold = 50;
     }
 }
