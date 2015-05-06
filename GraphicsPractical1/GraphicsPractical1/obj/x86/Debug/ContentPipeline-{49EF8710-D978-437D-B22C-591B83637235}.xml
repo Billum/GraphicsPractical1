@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\heightmap.xnb</Output>
-      <Time>2015-04-21T17:45:18.8758604+02:00</Time>
+      <Output>\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\heightmap.xnb</Output>
+      <Time>2015-05-06T16:57:15+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -17,10 +17,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Tomas\documents\visual studio 2013\Projects\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1Content\</RootDirectory>
+      <LoggerRootDirectory>\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\</LoggerRootDirectory>
+      <IntermediateDirectory>\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -49,7 +49,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-04-21T15:39:06.2371734+02:00</Value>
+        <Value>2015-04-23T11:09:04.5380767+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

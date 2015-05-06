@@ -9,13 +9,15 @@ namespace GraphicsPractical1
 {
     class Terrain
     {
-        private const int tresholdSnow = 23;
+        // Declares and sets variables for epic scenery.
+        public const int tresholdSnow = 23;
         public const int WaterTreshold = 50;
         public const int Vulcano = 15;
         public const int Lava = 7;
         public const int VulcanoTreshold = 18;
         public const int LavaTreshold = 18;
 
+        // Declates dimentions of terrain.
         private int width;
         private int height;
         private short[] indices;
@@ -24,21 +26,27 @@ namespace GraphicsPractical1
         private VertexBuffer vertexBuffer;
         private IndexBuffer indexBuffer;
 
+        // Terrain construct method.
         public Terrain(HeightMap heightMap, float heightScale, GraphicsDevice device)
         {
+            // Sets width and height.
             this.width = heightMap.Width;
             this.height = heightMap.Height;
 
+            // Calls created functions to complete terrain model.
             this.vertices = this.loadVertices(heightMap, heightScale);
             this.setupIndices();
             this.calculateNormals();
+
             this.copyToBuffers(device);
         }
 
+        // Turns height map into vertices and modifies the height for epic landscape.
         private VertexPositionColorNormal[] loadVertices(HeightMap heightMap, float heightScale)
         {
             VertexPositionColorNormal[] vertices = new VertexPositionColorNormal[this.width * this.height];
 
+            // Turns every height data point into vertex whith dubble for loop.
             for (int x = 0; x < this.width; ++x)
                 for (int y = 0; y < this.height; ++y)
                 {     
@@ -47,15 +55,15 @@ namespace GraphicsPractical1
                     vertices[v].Position = new Vector3(x, h, -y);
                     
                     if (heightMap[x, y] > (WaterTreshold + 1))
-                        // Color everything above the snow treshold white, now the
-                        // mountain tops have snow on them
+                        // Colors everything above the snow treshold white.
                         vertices[v].Color = (h > tresholdSnow)
                                                 ? Color.White
                                                 : Color.Green;
                     else
-                        // Everything below the water treshold is colored blue
+                        // Everything below the water treshold is colored blue.
                         vertices[v].Color = Color.Blue;
                 }
+            // Makes fulcano.
             for (int x = this.width/2 - Vulcano; x < this.width/ 2 + Vulcano; ++x)
                 for (int y = this.height/ 2 - Vulcano; y < this.height/ 2 + Vulcano; ++y)
                 {
@@ -78,6 +86,7 @@ namespace GraphicsPractical1
             return vertices;
         }
 
+        // Creates trianles 
         private void setupIndices()
         {
             this.indices = new short[(this.width - 1) * (this.height - 1) * 6];
@@ -85,13 +94,16 @@ namespace GraphicsPractical1
             for (int x = 0; x < this.width - 1; x++)
                 for (int y = 0; y < this.height - 1; y++)
                 {
+                    // sets vertecis.
                     int lowerLeft = x + y * this.width;
                     int lowerRight = (x + 1) + y * this.width;
                     int topLeft = x + (y + 1) * this.width;
                     int topRight = (x + 1) + (y + 1) * this.width;
+                    // Lower left triangle.
                     this.indices[counter++] = (short)topLeft;
                     this.indices[counter++] = (short)lowerRight;
                     this.indices[counter++] = (short)lowerLeft;
+                    // Top right triangle.
                     this.indices[counter++] = (short)topLeft;
                     this.indices[counter++] = (short)topRight;
                     this.indices[counter++] = (short)lowerRight;
@@ -136,6 +148,7 @@ namespace GraphicsPractical1
             device.SetVertexBuffer(this.vertexBuffer);
         }
 
+        // Property methods for width and height.
         public int Width
         {
             get { return this.width; }

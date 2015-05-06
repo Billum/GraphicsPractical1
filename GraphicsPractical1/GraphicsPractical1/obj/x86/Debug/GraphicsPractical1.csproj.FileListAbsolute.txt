@@ -19,3 +19,10 @@ C:\Users\Tomas\Documents\Visual Studio 2013\Projects\GraphicsPractical12\Graphic
 \\psf\Home\Documents\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\psf\Home\Documents\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\GraphicsPractical1.exe
 \\psf\Home\Documents\GraphicsPractical1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\GraphicsPractical1.pdb
+\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\Content\heightmap.xnb
+\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\GraphicsPractical1.exe
+\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\bin\x86\Debug\GraphicsPractical1.pdb
+\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\GraphicsPractical1.csprojResolveAssemblyReference.cache
+\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\GraphicsPractical1.exe
+\\psf\Home\Desktop\CS\Graphics\p1\GraphicsPractical1\GraphicsPractical1\obj\x86\Debug\GraphicsPractical1.pdb

@@ -16,6 +16,7 @@ namespace GraphicsPractical1
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        // Declaration of frame rate counter, basic effect, camera, and terrain.
         private FrameRateCounter frameRateCounter;
         private BasicEffect effect;
         private Camera camera;
@@ -25,6 +26,7 @@ namespace GraphicsPractical1
 
         public Game1()
         {
+            // Constructs frame rate counter and addition to components of the game.
             this.frameRateCounter = new FrameRateCounter(this);
             this.Components.Add(this.frameRateCounter);
             graphics = new GraphicsDeviceManager(this);
@@ -39,6 +41,7 @@ namespace GraphicsPractical1
         /// </summary>
         protected override void Initialize()
         {
+            // Sets size of back buffer, full screen to false and some other settings.
             this.graphics.PreferredBackBufferWidth = 800;
             this.graphics.PreferredBackBufferHeight = 600;
             this.graphics.IsFullScreen = false;
@@ -56,11 +59,14 @@ namespace GraphicsPractical1
         /// </summary>
         protected override void LoadContent()
         {
+            // Load height map.
             Texture2D map = Content.Load<Texture2D>("heightmap");
+            // Loads terrain.
             this.terrain = new Terrain(new HeightMap(map), 0.2f, GraphicsDevice);
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            // loads basic effect and sets preferences, like enabeling colour.
             this.effect = new BasicEffect(this.GraphicsDevice);
             this.effect.VertexColorEnabled = true;
             this.effect.LightingEnabled = true;
@@ -68,6 +74,8 @@ namespace GraphicsPractical1
             this.effect.DirectionalLight0.DiffuseColor = Color.White.ToVector3();
             this.effect.DirectionalLight0.Direction = new Vector3(0, -1, 0);
             this.effect.AmbientLightColor = new Vector3(0.3f);
+
+            // Loads camera whith a location, focus point, and up.
             this.camera = new Camera(new Vector3(60, 80, -80), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
         }
 
@@ -93,10 +101,13 @@ namespace GraphicsPractical1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            // Gives window a title containing the frame rate.
             this.Window.Title = "Graphics Tutorial | FPS: " + this.frameRateCounter.FrameRate;
             float deltaAngle = 0;
 
+            // Declares keyboard state
             KeyboardState kbState = Keyboard.GetState();
+            // Adds rotation controll with left and right arrow keys
             if (kbState.IsKeyDown(Keys.Left))
                 deltaAngle += -3 * timeStep;
             if (kbState.IsKeyDown(Keys.Right))
@@ -104,12 +115,13 @@ namespace GraphicsPractical1
             if (deltaAngle != 0)
                 this.camera.Eye = Vector3.Transform(this.camera.Eye, Matrix.CreateRotationY(deltaAngle));
 
+            // Adds zoom controll with up and down arrow keys.
             if (kbState.IsKeyDown(Keys.Down))
                 this.camera.Eye = Vector3.Transform(this.camera.Eye, Matrix.CreateScale(1.001f));
             if (kbState.IsKeyDown(Keys.Up))
                 this.camera.Eye = Vector3.Transform(this.camera.Eye, Matrix.CreateScale(0.999f));
 
-
+            // Adds awesome cinematic effects with wasd keys.
             if (kbState.IsKeyDown(Keys.A))
                 this.camera.Eye = Vector3.Add(this.camera.Eye, new Vector3(-0.1f, 0.0f, 0.0f));
             if (kbState.IsKeyDown(Keys.D))
@@ -127,6 +139,7 @@ namespace GraphicsPractical1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            // rs to show load all triangles.
             RasterizerState rs = new RasterizerState();
             Matrix translation = Matrix.CreateTranslation(-0.5f * this.terrain.Width, 0, 0.5f * this.terrain.Width);
 
@@ -134,10 +147,12 @@ namespace GraphicsPractical1
             rs.FillMode = FillMode.Solid;
             this.GraphicsDevice.RasterizerState = rs;
             this.GraphicsDevice.Clear(Color.CornflowerBlue);
+            // Adds matrices and our designated translation to effects.
             this.effect.Projection = this.camera.ProjectionMatrix;
             this.effect.View = this.camera.ViewMatrix;
             this.effect.World = translation;
 
+            // applies all passes of the used technique.
             foreach (EffectPass pass in this.effect.CurrentTechnique.Passes)
             {
                 pass.Apply();
