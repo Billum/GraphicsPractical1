@@ -17,7 +17,7 @@ namespace GraphicsPractical1
         public const int VulcanoTreshold = 18;
         public const int LavaTreshold = 18;
 
-        // Declates dimentions of terrain.
+        // Declares dimentions of terrain.
         private int width;
         private int height;
         private short[] indices;
