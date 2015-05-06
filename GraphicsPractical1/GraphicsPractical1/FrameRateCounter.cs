@@ -19,6 +19,7 @@ namespace GraphicsPractical1
             secondsPassed = 0;
         }
 
+        // Updates de FPS 
         public override void Update(GameTime gameTime)
         {
             if (secondsPassed != gameTime.TotalGameTime.Seconds)
@@ -29,11 +30,14 @@ namespace GraphicsPractical1
             }
         }
 
+
         public override void Draw(GameTime gameTime)
         {
             frameCounter++;
         }
 
+
+        // Properties
         public int FrameRate
         {
             get { return frameRate; }

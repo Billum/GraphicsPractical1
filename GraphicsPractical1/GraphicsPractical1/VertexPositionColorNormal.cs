@@ -18,6 +18,9 @@ namespace GraphicsPractical1
             this.Color = color;
             this.Normal = normal;
         }
+
+        // This is C# implementation for HLSL (High Level Shading Language) to get POSITION0, COLOR0 and NORMAL0
+        // like used in the struct.
         public static VertexElement[] VertexElements =
         {
             new VertexElement(0, VertexElementFormat.Vector3, VertexElementUsage.Position, 0),
@@ -25,6 +28,8 @@ namespace GraphicsPractical1
             new VertexElement(sizeof (float) * 3 + 4, VertexElementFormat.Vector3, VertexElementUsage.Normal, 0),
         };
 
+        // Initializes a vertex declarartion that consists a list of vertex elements, which describe the kind of data,
+        // what it is used for, in what order they appear in the struct and the size of the elements.
         public static readonly VertexDeclaration VertexDeclaration = new VertexDeclaration(VertexPositionColorNormal.VertexElements);
         VertexDeclaration IVertexType.VertexDeclaration
         {
